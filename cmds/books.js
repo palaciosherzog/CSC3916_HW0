@@ -11,7 +11,7 @@ module.exports = async (args) => {
         spinner.stop();
 
         console.log(`Current books with ${phrase}:`)
-        console.log(`\t${books}`)
+        console.log(`\t${JSON.stringify(books)}`)
     } catch (err) {
         spinner.stop()
 

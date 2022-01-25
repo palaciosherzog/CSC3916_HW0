@@ -19,12 +19,20 @@ describe('Test Async Books (Mock)', () => {
 
     it('should return an object with list books with turing in the title', function(done) {
 
-        const resolved = new Promise(resolve => resolve({ data: 'hello world' }));
+        const resolved = new Promise(resolve => resolve({ 
+            data: 'hello world',  
+            status: 400,  
+            statusText: 'OK',  
+            headers: 'header',
+            config: {
+                headers: 'header'
+            }
+        }));
         sandbox.stub(axios, 'get').returns(resolved);
 
         getBooks('turing').then((result) => {
-            console.log(result);
-            expect(result).to.equal('"hello world"');
+            console.log(result.data);
+            expect(result.data).to.equal('hello world');
             done();
         }).catch(err => done(err));
     });

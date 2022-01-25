@@ -11,7 +11,7 @@ describe('Test Async Books', () => {
 
     it('should return an object with list books with turing in the title', function(done) {
         getBooks('turing').then((result) => {
-            let books = JSON.parse(result);
+            let books = result.data;
             expect(books).to.be.an('object');
             expect(books.items).to.satisfy(function(items) {
                 return items.every(function(item) {
@@ -25,7 +25,7 @@ describe('Test Async Books', () => {
     it('should return an error with list books with "" in the title', function(done) {
         getBooks('').then((result) => {
             console.log(result);
-            let books = JSON.parse(result);
+            let books = result.data;
             expect(books).to.be.an('object');
             done();
         }).catch(err => {
