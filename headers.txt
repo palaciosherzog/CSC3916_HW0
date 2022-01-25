@@ -1,0 +1,44 @@
+Request Headers
+---------------
+User-Agent: PostmanRuntime/7.29.0
+    Lets servers know what is requesting this information: including the application, operating system, and/or version. 
+Accept: */*
+    Informs the service which types of content (data/file formats) the client can understand. 
+Postman-Token: 72455db9-8d99-46b2-b353-56f0903261da
+    Postman specific header. It's used to ensure that requests with the same parameters get different responses, acting a bit like a unique key, according to the postman docs: https://learning.postman.com/docs/getting-started/settings/.
+Host: www.googleapis.com
+    Specifies the host (and port number) to send the request to.
+Accept-Encoding: gzip, deflate, br
+    Informs the service which type(s) of encoding the client can understand (typically in relation to compression algorithms).
+Connection: keep-alive
+    Tells the network connection to stay open after the current request. (A value of keep-alive allows multiple requests to the server without recreating the connection each time.)
+
+Response Headers
+----------------
+Content-Type: application/json; charset=UTF-8
+    Identifies original content type of the response that is being sent back. "application/json" indicates the MIME type of the file being sent (in this case, that it's a json file), and "charset=UTF-8" indicates that the file is encoded with UTF-8 character encoding.
+Vary: Origin
+Vary: X-Origin
+Vary: Referer
+    Most often used to "remember" the content type that the server sent from the list of the types that the client accepted.
+Content-Encoding: gzip
+    Holds the encodings from the client's original Accept-Encoding list that were applied to the returned message data (and the order) for the client to apply decompression. 
+Date: Sat, 22 Jan 2022 02:42:59 GMT
+    Date and time the message was created. (Timestamps the message.)
+Server: ESF
+    Name of software or server that handled the request.
+Cache-Control: private
+    Holds instructions about how to cache the information sent back. Private says that only the user's local cache should store the information, not in any caches shared along the way.
+X-XSS-Protection: 0
+    When turned on, prevents Internet Explorer, Chrome, and Safari from loading pages when they detect reflected XSS (0 disables this, which may help to prevent XSS vulnerabilities in newer sites)
+X-Frame-Options: SAMEORIGIN
+    Controls if a browser should be able to render any kind of embedded pages (in iframes and the like). SAMEORIGIN ensures that only pages from the same domain can be loaded. 
+X-Content-Type-Options: nosniff
+    Used by server to say to use the content types from the Content-Type header should be the only ones used.
+Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+    Server informing that these other network connections can be treated as authoritative for future requests.
+Transfer-Encoding: chunked
+    Specifies what kind of encoding was used to transfer the data to the user. "Chunked" allows the data to be sent in chunks, allowing for "streaming" of the response. 
+
+
+This information comes from the lectures and from information from https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/
